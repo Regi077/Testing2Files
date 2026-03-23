@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Retro Portal Login</title>
+  <style>
+    :root {
+      --bg: #0d0221;
+      --panel: #1b1038;
+      --neon-pink: #ff2a6d;
+      --neon-cyan: #05d9e8;
+      --text: #f8f9ff;
+      --scanline: rgba(255, 255, 255, 0.06);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        repeating-linear-gradient(
+          to bottom,
+          transparent 0 3px,
+          var(--scanline) 3px 4px
+        ),
+        radial-gradient(circle at 20% 20%, #2a145f 0, transparent 38%),
+        radial-gradient(circle at 80% 80%, #1e2b7d 0, transparent 40%),
+        var(--bg);
+      overflow: hidden;
+    }
+
+    .grid {
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(5, 217, 232, 0.15) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(5, 217, 232, 0.15) 1px, transparent 1px);
+      background-size: 40px 40px;
+      transform: perspective(500px) rotateX(65deg) translateY(35%);
+      transform-origin: center;
+      opacity: 0.35;
+      pointer-events: none;
+    }
+
+    .card {
+      width: min(92vw, 560px);
+      padding: 2.2rem;
+      border: 2px solid var(--neon-cyan);
+      border-radius: 12px;
+      background: linear-gradient(145deg, rgba(27, 16, 56, 0.9), rgba(10, 8, 22, 0.92));
+      box-shadow:
+        0 0 16px rgba(5, 217, 232, 0.35),
+        0 0 28px rgba(255, 42, 109, 0.25),
+        inset 0 0 14px rgba(5, 217, 232, 0.2);
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    h1 {
+      margin: 0 0 0.5rem;
+      font-size: clamp(1.6rem, 5vw, 2.4rem);
+      color: var(--neon-pink);
+      text-shadow: 0 0 10px rgba(255, 42, 109, 0.7);
+      letter-spacing: 0.05em;
+    }
+
+    p {
+      margin: 0.4rem 0 1.6rem;
+      color: #dce7ff;
+      line-height: 1.45;
+    }
+
+    .status {
+      display: inline-block;
+      margin-bottom: 1.2rem;
+      padding: 0.3rem 0.7rem;
+      border: 1px solid var(--neon-cyan);
+      border-radius: 999px;
+      color: var(--neon-cyan);
+      font-size: 0.82rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .login-btn {
+      border: 0;
+      padding: 0.9rem 1.8rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      color: #14061f;
+      background: linear-gradient(90deg, var(--neon-cyan), #7df9ff);
+      box-shadow: 0 0 14px rgba(5, 217, 232, 0.55);
+      transition: transform 120ms ease, box-shadow 120ms ease;
+    }
+
+    .login-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 18px rgba(5, 217, 232, 0.85);
+    }
+
+    .login-btn:active {
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <div class="grid" aria-hidden="true"></div>
+
+  <main class="card">
+    <span class="status">System Online</span>
+    <h1>Retro Access</h1>
+    <p>No password needed for this demo. Click log in to enter the bouncing balls scene.</p>
+    <button id="loginBtn" class="login-btn" type="button">Log In</button>
+  </main>
+
+  <script>
+    document.getElementById("loginBtn").addEventListener("click", function () {
+      window.location.href = "bouncing-balls.html";
+    });
+  </script>
+</body>
+</html>
